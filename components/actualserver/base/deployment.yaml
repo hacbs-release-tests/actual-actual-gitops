@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: actualserver
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: actualserver
+    app.kubernetes.io/part-of: actual
+  name: actualserver
+  namespace: actual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: actualserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: actualserver
+    spec:
+      containers:
+      - image: quay.io/scoheb/actual-server
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}

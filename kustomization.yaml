@@ -1,0 +1,4 @@
+bases:
+- components/actualserver/base
+resources:
+- common-storage-pvc.yaml
