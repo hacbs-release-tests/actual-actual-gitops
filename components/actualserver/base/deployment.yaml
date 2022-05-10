@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: actualserver
     app.kubernetes.io/part-of: actual
+    app: actualserver
   name: actualserver
   namespace: actual
 spec:
@@ -49,7 +50,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: actualserver
     app.kubernetes.io/part-of: actual
-    app: actual
+    app: actualserver
 apiVersion: v1
 spec:
   accessModes:
@@ -67,7 +68,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: actualserver
     app.kubernetes.io/part-of: actual
-    app: actual
+    app: actualserver
 apiVersion: v1
 spec:
   ports:
@@ -76,5 +77,4 @@ spec:
       port: 5006
       targetPort: http
   selector:
-    matchLabels:
-      app.kubernetes.io/instance: actualserver
+    app: actualserver
