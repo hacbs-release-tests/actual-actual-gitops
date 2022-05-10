@@ -27,4 +27,28 @@ spec:
         imagePullPolicy: Always
         name: container-image
         resources: {}
+        ports:
+          - name: http
+            containerPort: 5006
+        volumeMounts:
+          - mountPath: /app/user-files
+            name: actual-data
+      volumes:
+        - name: actual-data
+          persistentVolumeClaim:
+            claimName: actual-data
+          
 status: {}
+---
+kind: PersistentVolumeClaim
+metadata:
+  name: actual-data
+  labels:
+    app: actual
+apiVersion: v1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
