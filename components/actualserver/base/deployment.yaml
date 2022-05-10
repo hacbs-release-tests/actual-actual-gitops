@@ -76,5 +76,6 @@ spec:
       port: 5006
       targetPort: http
   selector:
-    app: actual
-
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: actualserver
