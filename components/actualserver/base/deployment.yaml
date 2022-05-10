@@ -44,6 +44,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: actual-data
   labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: actualserver
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: actualserver
+    app.kubernetes.io/part-of: actual
     app: actual
 apiVersion: v1
 spec:
@@ -52,3 +57,24 @@ spec:
   resources:
     requests:
       storage: 5Gi
+---
+kind: Service
+metadata:
+  name: actual
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: actualserver
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: actualserver
+    app.kubernetes.io/part-of: actual
+    app: actual
+apiVersion: v1
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5006
+      targetPort: http
+  selector:
+    app: actual
+
