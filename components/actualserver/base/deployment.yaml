@@ -22,9 +22,10 @@ spec:
       creationTimestamp: null
       labels:
         app.kubernetes.io/instance: actualserver
+        app: actualserver
     spec:
       containers:
-      - image: quay.io/scoheb/actual-server
+        - image: quay.io/scoheb/actual-server:1.1
         imagePullPolicy: Always
         name: container-image
         resources: {}
