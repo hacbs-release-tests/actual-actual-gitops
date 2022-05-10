@@ -25,7 +25,7 @@ spec:
         app: actualserver
     spec:
       containers:
-        - image: quay.io/scoheb/actual-server:1.1
+      - image: quay.io/scoheb/actual-server:1.1
         imagePullPolicy: Always
         name: container-image
         resources: {}
