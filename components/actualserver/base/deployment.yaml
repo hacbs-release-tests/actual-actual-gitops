@@ -78,3 +78,26 @@ spec:
       targetPort: http
   selector:
     app: actualserver
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: actual-server
+  namespace: actual
+  labels:
+    app: actualserver
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: gitopsdepl-5065d421-5798-4d9c-a995-113336aef958
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: actualserver
+    app.kubernetes.io/part-of: actual
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  to:
+    kind: Service
+    name: actual
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
