@@ -10,12 +10,12 @@ metadata:
     pipelines.appstudio.openshift.io/type: build
   creationTimestamp: null
   name: appstudio
-  namespace: actual
+  namespace: scott
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Mi
   volumeMode: Filesystem
 status: {}

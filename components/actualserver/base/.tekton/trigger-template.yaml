@@ -3,7 +3,7 @@ kind: TriggerTemplate
 metadata:
   creationTimestamp: null
   name: actualserver
-  namespace: actual
+  namespace: scott
 spec:
   params:
   - name: git-revision
@@ -20,15 +20,15 @@ spec:
         pipelines.appstudio.openshift.io/type: build
       creationTimestamp: null
       generateName: actualserver-
-      namespace: actual
+      namespace: scott
     spec:
       params:
       - name: git-url
         value: https://github.com/scoheb/actual-server.git
       - name: output-image
-        value: quay.io/scoheb/actual-server:$(tt.params.git-revision)
+        value: quay.io/redhat-appstudio/user-workload:scott-actualserver-$(tt.params.git-revision)
       pipelineRef:
-        bundle: quay.io/redhat-appstudio/build-templates-bundle:19cf17aa63a1c65eee897af8430dbb9c1682d77a
+        bundle: quay.io/redhat-appstudio/build-templates-bundle:fb1a1291cff78de06353a9748532a826f3a557f7
         name: docker-build
       workspaces:
       - name: workspace

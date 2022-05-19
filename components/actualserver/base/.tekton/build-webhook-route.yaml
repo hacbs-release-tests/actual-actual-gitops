@@ -10,7 +10,7 @@ metadata:
     pipelines.appstudio.openshift.io/type: build
   creationTimestamp: null
   name: elactualserver
-  namespace: actual
+  namespace: scott
 spec:
   path: /
   port:
